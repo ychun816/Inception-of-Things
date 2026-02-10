@@ -60,9 +60,11 @@
     - [x] Install K3s in `agent` mode.
     - [x] Join the cluster using the server's IP and token.
   - [x] **Verification**: `kubectl get nodes -o wide` should show both nodes as `Ready`.
+
   - [ ] **Worker Node (`[login]SW`):**
     - [ ] Install K3s in `agent` mode.
     - [ ] Connect to Server IP `192.168.56.110` using the token.
+    
   - [ ] **Verification**: Run `kubectl get nodes` on Server to see both nodes ready.
 
 ---
@@ -70,28 +72,29 @@
 ### Part 2: K3s and Three Simple Applications
 **Objective**: Deploy 3 web apps and route traffic using Ingress on a single K3s node.
 
-- [ ] **Vagrant Setup**
-  - [ ] Create `p2/` folder and `Vagrantfile`.
-  - [ ] **VM (Server):**
-    - [ ] Hostname: `[login]S`.
-    - [ ] IP: `192.168.56.110`.
-    - [ ] Install K3s in `server` mode (Traefik enabled by default).
+- [x] **Vagrant Setup**
+  - [x] Create `p2/` folder and `Vagrantfile`.
+  - [x] **VM (Server):**
+    - [x] Hostname: `[login]S`.
+    - [x] IP: `192.168.56.110`.
+    - [x] Install K3s in `server` mode (Traefik enabled by default).
 
-- [ ] **Applications**
-  - [ ] Develop/Select a simple web app image (or use `traefik/whoami` / `wil42/playground`).
-  - [ ] **App 1**: Deployment + Service (ClusterIP).
-  - [ ] **App 2**: Deployment (**3 Replicas**) + Service (ClusterIP).
-  - [ ] **App 3**: Deployment + Service (ClusterIP).
+- [x] **Applications**
+  - [x] Develop/Select a simple web app image (or use `traefik/whoami` / `wil42/playground`).
+  - [x] **App 1**: Deployment + Service (ClusterIP).
+  - [x] **App 2**: Deployment (**3 Replicas**) + Service (ClusterIP).
+  - [x] **App 3**: Deployment + Service (ClusterIP).
 
-- [ ] **Ingress Configuration**
-  - [ ] Create `ingress.yaml` resource.
-  - [ ] **Route 1**: Host `app1.com` → directs to App 1.
-  - [ ] **Route 2**: Host `app2.com` → directs to App 2.
-  - [ ] **Default Route**: Any other host/IP → directs to App 3.
+- [x] **Ingress Configuration**
+  - [x] Create `ingress.yaml` resource.
+  - [x] **Route 1**: Host `app1.com` → directs to App 1.
+  - [x] **Route 2**: Host `app2.com` → directs to App 2.
+  - [x] **Route 3**: Host `app3.com` → directs to App 3.
+  - [x] **Default Route**: Any other host/IP → directs to App 3.
 
-- [ ] **Testing**
-  - [ ] Configure local `/etc/hosts` to point `app1.com` and `app2.com` to `192.168.56.110`.
-  - [ ] Verify access in browser/curl for all 3 scenarios.
+- [] **Testing**
+  - [] Configure local `/etc/hosts` to point `app1.com`, `app2.com`, and `app3.com` to `192.168.56.110`.
+  - [] Verify access in browser/curl for all 3 scenarios.
 
 ---
 
@@ -185,4 +188,5 @@ VBoxManage setproperty machinefolder /goinfre/yilin/virtualbox_vms
 - **Service**: Provides a stable network endpoint to access app's pods, even as pods are created, destroyed, or moved.
 - **Ingress**: Routes external traffic to services.
 
-> You can group related YAMLs in the same file (separated by `---`), but each resource must remain its own object. 
+> You can group related YAMLs in the same file (separated by `---`), but each resource must remain its own object.
+
