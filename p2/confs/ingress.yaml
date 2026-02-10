@@ -1,0 +1,65 @@
+# Ingress configuration to route traffic to app-one-service based on the host header "app1.com"
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+
+# Sets the name of this Ingress object
+metadata:
+  name: apps-ingress
+
+# Begins the list of routing rules
+# Rule for app1.com / app2.com / app3.com
+spec:
+  rules:
+    # app1
+    - host: app1.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: app-one-service
+                port: 
+                  number: 80
+    # app2
+    - host: app2.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: app-two-service
+                port: 
+                  number: 80
+    # app3
+    - host: app3.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: app-three-service
+                port: 
+                  number: 80
+# Default rule (no host)
+# If the request does not match any specific host (like app1.com or app2.com), this rule catches all other requests and routes them to app-three-service on port 80.
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: app-three-service
+                port:
+                  number: 80
+
+## NOTES ## 
+# http://app1.com -> app-one-service
+# http://app2.com -> app-two-service
+# http://app3.com -> app-three-service
+
+# The Ingress routes traffic based on the Host header and path.
+# Specific hosts (like app1.com) go to their respective services.
+# The rule without a host acts as a default, sending unmatched requests to App 3

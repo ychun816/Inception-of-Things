@@ -112,6 +112,19 @@ Below is the **English explanation of the core differences**, using the **same a
 
 ---
 
+## ingress.yaml
+
+- `ingress.yaml` defines an Ingress resource in Kubernetes
+- Acts as a smart *router* for HTTP/HTTPS traffic coming into your cluster.
+
+- It receives external requests (from your browser or curl) and routes them to the correct Service based on rules defined (like hostnames or paths).
+- For example, it can send requests for app1.com to the App 1 service, app2.com to App 2, and all other requests to App 3.
+- Ingress works with an Ingress Controller (like Traefik, which is included by default in K3s) to actually handle and forward the traffic.
+
+> `ingress.yaml` is cluster’s “traffic controller” for web requests, let you expose multiple apps on a single IP and port, with flexible routing rules.
+
+---
+
 ## Ruby essentials
 
 [Ruby Basic Syntax](https://www.geeksforgeeks.org/ruby/ruby-basic-syntax/)
