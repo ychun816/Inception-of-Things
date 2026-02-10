@@ -172,3 +172,17 @@ VBoxManage setproperty machinefolder /goinfre/yilin/virtualbox_vms
 > Service = stable access point to those pods
 
 ![alt text](<Screenshot from 2026-02-10 18-36-04.png>)
+
+---
+
+## Kubernetes Best Practice: Modularity
+
+- In Kubernetes, it is best practice to keep resources modular. 
+- Each resource (Deployment, Service, Ingress, etc.) should be defined as a separate YAML object. 
+- This makes setup more maintainable, reusable, and easier to update or troubleshoot. 
+
+- **Deployment**: Manages app's pods (how many, what image, update strategy, etc.).
+- **Service**: Provides a stable network endpoint to access app's pods, even as pods are created, destroyed, or moved.
+- **Ingress**: Routes external traffic to services.
+
+> You can group related YAMLs in the same file (separated by `---`), but each resource must remain its own object. 
