@@ -29,9 +29,8 @@ from "Infrastructure as Code" (Vagrant) to "GitOps" (ArgoCD).
 - (documentation)[https://developer.hashicorp.com/vagrant/docs]
 - (beginner tuto)[https://www.youtube.com/watch?v=czMCO1w-xQU&list=PLhW3qG5bs-L9S272lwi9encQOL9nMOnRa]
 
- Ansible vs. Terraform vs. Vagrant: What's the difference? https://www.youtube.com/watch?v=NTdk7K1BcEs
-
-
+- Difference between docker and vagrant (VMs vs. Containers)
+https://www.simform.com/blog/vms-vs-containers/
 
 ### Kubernetes
 
