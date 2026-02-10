@@ -10,7 +10,6 @@ Vagrant.configure("2") do |config|
     vb.cpus = 1          # Allocate 1 CPU core
   end
 
-
   # --------------------------------------------------
   # Server node (K3s controller)
   # --------------------------------------------------

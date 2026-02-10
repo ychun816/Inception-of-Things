@@ -7,7 +7,6 @@ NODE_TYPE=$1
 
 # Static IP address of the K3s server (controller, agent)
 SERVER_IP="192.168.56.110"
-WORKER_IP="192.168.56.111"
 
 # Shared file path for the K3s cluster join token
 # /vagrant is a shared folder between host and all VMs

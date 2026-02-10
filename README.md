@@ -132,7 +132,7 @@
 
 ---
 
-### p1 quick start 
+### p1 Basic Setup (2VMS) | quick start 
 
 ```bash
 vagrant --version
@@ -163,3 +163,12 @@ source ~/.zshrc
 VBoxManage setproperty machinefolder /goinfre/yilin/virtualbox_vms
 
 ```
+
+---
+
+### p2 (1VM / 1 ingress / ) | Quick Start
+
+> Deployment = manages pods (your app instances)
+> Service = stable access point to those pods
+
+![alt text](<Screenshot from 2026-02-10 18-36-04.png>)
