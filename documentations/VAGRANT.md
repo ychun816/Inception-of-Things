@@ -110,3 +110,8 @@ Below is the **English explanation of the core differences**, using the **same a
 | “Am I managing OS behavior?”    | Vagrant |
 | “Am I deploying software?”      | Docker  |
 
+---
+
+## Ruby essentials
+
+[Ruby Basic Syntax](https://www.geeksforgeeks.org/ruby/ruby-basic-syntax/)

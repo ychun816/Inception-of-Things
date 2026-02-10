@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
       args: ["server"]
   end
 
-  
+
   # --------------------------------------------------
   # Worker node (K3s agent)
   # --------------------------------------------------
@@ -49,3 +49,18 @@ Vagrant.configure("2") do |config|
   end
 
 end
+
+
+### NOTES ###
+# do ... end: -> like {} -> defines a Block of code. It's a chunk of code that you are passing into the method to be executed.
+# |config|: This is the Block Variable (parameter).
+  # When Vagrant.configure runs, it creates a settings object and "yields" it to your block.
+  # Inside the block, you give that object a name: config.
+  # Whatever changes you make to config inside the block are applied to the final setup.
+
+# server.vm.network "private_network", ip: "..."
+  # Concept: Method with Mixed Arguments (Positional + Keyword).
+  # "private_network": This is a Positional Argument. It's the first input, and order matters. It tells the function what type of network to create.
+  # ip: "192.168.56.110": This is a Keyword Argument (Named Parameter).
+  # Ruby allows key: value syntax at the end of a function call.
+  # This is specific configuration data for the network. because you labelled it ip:, the function knows exactly what this string is for, regardless of order.

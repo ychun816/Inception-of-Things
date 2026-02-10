@@ -10,11 +10,18 @@
 │
 ├── p2/                         # Part 2: K3s & Ingress (1 VM)
 │   ├── Vagrantfile             # Defines 1 VM (Server)
-│   └── manifests/
-│       ├── app1.yml
-│       ├── app2.yml
-│       ├── app3.yml
-│       └── ingress.yml
+│   ├── scripts/
+│   └── confs/
+│       ├── app1/
+│       │   ├── deployment.yaml
+│       │   └── service.yaml
+│       ├── app2/
+│       │   ├── deployment.yaml
+│       │   └── service.yaml
+│       ├── app3/
+│       │   ├── deployment.yaml
+│       │   └── service.yaml
+│       └── ingress.yaml
 │
 └── p3/                         # Part 3: K3d & ArgoCD (Local/VM Script)
     ├── install.sh              # Installs Docker, K3d, ArgoCD CLI
@@ -31,23 +38,27 @@
 ### Part 1: K3s and Vagrant
 **Objective**: Set up a K3s cluster with 1 Controller and 1 Worker using Vagrant.
 
-- [ ] **Vagrant Setup**
-  - [ ] Create `p1/` folder and `Vagrantfile`.
-  - [ ] **VM 1 (Server):**
-    - [ ] Hostname: `[login]S` (e.g., `wilS`).
-    - [ ] IP: `192.168.56.110`.
-    - [ ] Resources: 1 CPU, 512MB RAM.
-  - [ ] **VM 2 (Worker):**
-    - [ ] Hostname: `[login]SW` (e.g., `wilSW`).
-    - [ ] IP: `192.168.56.111`.
-    - [ ] Resources: 1 CPU, 512MB RAM.
-  - [ ] **SSH**: Ensure passwordless SSH works between host and VMs (Vagrant default).
+- [x] **Vagrant Setup**
+  - [x] Create `p1/` folder and `Vagrantfile`.
+  - [x] **VM 1 (Server):**
+    - [x] Hostname: `[login]S` (e.g., `wilS`).
+    - [x] IP: `192.168.56.110`.
+    - [x] Resources: 1 CPU, 512MB RAM.
+  - [x] **VM 2 (Worker):**
+    - [x] Hostname: `[login]SW` (e.g., `wilSW`).
+    - [x] IP: `192.168.56.111`.
+    - [x] Resources: 1 CPU, 512MB RAM.
+  - [x] **SSH**: Ensure passwordless SSH works between host and VMs (Vagrant default).
 
-- [ ] **K3s Installation**
-  - [ ] **Server Node (`[login]S`):**
-    - [ ] Install K3s in `server` (controller) mode.
-    - [ ] Verify `kubectl` is installed and functioning.
-    - [ ] Retrieve node token (`/var/lib/rancher/k3s/server/node-token`).
+- [x] **K3s Installation**
+  - [x] **Server Node (`[login]S`):**
+    - [x] Install K3s in `server` (controller) mode.
+    - [x] Verify `kubectl` is installed and functioning.
+    - [x] Retrieve node token (`/var/lib/rancher/k3s/server/node-token`).
+  - [x] **Worker Node (`[login]SW`):**
+    - [x] Install K3s in `agent` mode.
+    - [x] Join the cluster using the server's IP and token.
+  - [x] **Verification**: `kubectl get nodes -o wide` should show both nodes as `Ready`.
   - [ ] **Worker Node (`[login]SW`):**
     - [ ] Install K3s in `agent` mode.
     - [ ] Connect to Server IP `192.168.56.110` using the token.
@@ -118,3 +129,36 @@
     - [ ] Commit & Push.
     - [ ] Verify Argo CD syncs and updates the pod in the cluster automatically.
 
+---
+
+### p1 quick start 
+
+```bash
+vagrant --version
+
+# Bring up the VMs
+vagrant up
+
+# Verify the Cluster:
+# Once vagrant up finishes, log into the Server node and check if both nodes are ready:
+vagrant ssh yilinS
+sudo kubectl get nodes
+
+
+
+# no space 
+1. Create a folder in goinfre:
+mkdir -p /goinfre/yilin/vagrant_home
+2. Set the environment variable (temporary for this session):
+export VAGRANT_HOME=/goinfre/yilin/vagrant_home
+3. Try vagrant up again:
+vagrant up
+
+# (Optional) Make it permanent:
+echo 'export VAGRANT_HOME=/goinfre/yilin/vagrant_home' >> ~/.zshrc
+source ~/.zshrc
+
+# set in goinfre
+VBoxManage setproperty machinefolder /goinfre/yilin/virtualbox_vms
+
+```
