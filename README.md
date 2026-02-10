@@ -11,6 +11,7 @@
 ├── p2/                         # Part 2: K3s & Ingress (1 VM)
 │   ├── Vagrantfile             # Defines 1 VM (Server)
 │   ├── scripts/
+│   │   └── k3s-server.sh
 │   └── confs/
 │       ├── app1/
 │       │   ├── deployment.yaml
