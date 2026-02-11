@@ -30,3 +30,9 @@
 | Harder to audit                        | Git history = full audit log |
 | Manual drift possible                  | Auto drift detection         |
 | Imperative                             | Declarative                  |
+
+
+## CONCEPTS TO STUDY:
+
+[] namespace
+[] Kubernetes manifests
