@@ -1,0 +1,43 @@
+# Defines which Kubernetes API group and version this resource belongs to (Argo CD API)
+# Specifies the type of Kubernetes resource (Argo CD Application)
+apiVersion: argoproj.io/v1alpha1 
+kind: Application                 
+
+# The name of this Argo CD Application resource
+# The namespace where Argo CD is installed and where this Application object exists
+metadata:
+  name: yilin                   
+  namespace: argocd              
+
+spec:
+  # The Argo CD project this application belongs to (default project unless custom created)
+  project: default                
+
+
+  # Git repository containing Kubernetes manifests
+  # Which Git branch, tag, or commit to track (HEAD = latest commit of default branch)
+  # Directory inside the repository where Kubernetes YAML files are located
+  source:
+    repoURL: https://github.com/yilin/yilin-ception.git  
+    targetRevision: HEAD          
+    path: manifests               
+
+
+  # Kubernetes API server address (default internal cluster endpoint)
+  # Target namespace where resources will be deployed
+  destination:
+    server: https://kubernetes.default.svc  
+    namespace: dev                          
+
+  syncPolicy:
+    automated:                
+      selfHeal: true         
+      prune: true           
+
+
+## NOTES ##
+
+  # syncPolicy:
+  #   automated:                # Enables automatic synchronization (GitOps auto-deploy)
+  #     selfHeal: true          # If someone manually changes cluster resources, Argo CD will revert them to match Git
+  #     prune: true             # Removes resources from the cluster if they are deleted from the Git repository
