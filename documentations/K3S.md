@@ -1,10 +1,11 @@
-# K3s
+# K3S
 
 
 ## documentations 
 - [s3s overview](https://k3s.io/)
 - [k3s vs k8s: What's the difference?](https://www.youtube.com/watch?v=FmLna7tHDRc)
 - [Kubernetes Explained in 6 Minutes | k8s Architecture](https://www.youtube.com/watch?v=TlHvYWVUZyc)
+- [What is K3s? The Lightweight Kubernetes Distribution - Civo Academy](https://www.youtube.com/watch?v=qrVgXT6rH9Y)
 
 
 ## k3s vs k8s 
