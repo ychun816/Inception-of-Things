@@ -182,6 +182,9 @@ VBoxManage setproperty machinefolder /goinfre/yilin/virtualbox_vms
 
 ![alt text](image.png)
 
+- pre-requisitions.sh : Preparing the laboratory before running experiments.
+- setup-k3d-argocd.sh : Deploy and configure the system
+- uninstall_prereqs.sh : Clean everything
 
 ---
 
