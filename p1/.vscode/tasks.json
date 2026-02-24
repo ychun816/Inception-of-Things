@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Test p1 Vagrant and K3s setup",
+			"type": "shell",
+			"command": "vagrant up && vagrant ssh server -c 'kubectl get nodes' && vagrant ssh serverworker -c 'kubectl get nodes'",
+			"args": [],
+			"problemMatcher": [],
+			"group": "test"
+		}
+	]
+}
