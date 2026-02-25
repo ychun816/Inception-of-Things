@@ -13,7 +13,7 @@
 │   ├── scripts/
 │   │   └── k3s-server.sh
 │   └── confs/
-│       ├── app1/
+│       ├── app1/                # app => pod
 │       │   ├── deployment.yaml
 │       │   └── service.yaml
 │       ├── app2/
