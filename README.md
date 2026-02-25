@@ -69,7 +69,7 @@ VBoxManage setproperty machinefolder /goinfre/yilin/virtualbox_vms
 
 ---
 
-### p2 (1VM / 1 ingress / ) | Quick Start
+### p2 (1VM / 1 ingress) | Quick Start
 
 > Deployment = manages pods (your app instances)
 > Service = stable access point to those pods
@@ -85,6 +85,13 @@ VBoxManage setproperty machinefolder /goinfre/yilin/virtualbox_vms
 - pre-requisitions.sh : Preparing the laboratory before running experiments.
 - setup-k3d-argocd.sh : Deploy and configure the system
 - uninstall_prereqs.sh : Clean everything
+
+#### workflow 
+1. Host → runs Docker → runs K3D cluster
+2. K3D → runs ArgoCD
+3. Git → ArgoCD syncs manifests to K3D
+4. K3D pulls Docker images from Hub → deploys Pods
+5. Host → accesses apps via exposed ports
 
 ---
 
