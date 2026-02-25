@@ -82,16 +82,22 @@ VBoxManage setproperty machinefolder /goinfre/yilin/virtualbox_vms
 
 ![alt text](image.png)
 
-- pre-requisitions.sh : Preparing the laboratory before running experiments.
-- setup-k3d-argocd.sh : Deploy and configure the system
-- uninstall_prereqs.sh : Clean everything
+- k3d_install.sh : Installs Docker, k3d, kubectl, and jq (prerequisites)
+- create_nodes.sh : Creates the k3d cluster, namespaces, and deploys the application
 
-#### workflow 
-1. Host → runs Docker → runs K3D cluster
-2. K3D → runs ArgoCD
-3. Git → ArgoCD syncs manifests to K3D
-4. K3D pulls Docker images from Hub → deploys Pods
-5. Host → accesses apps via exposed ports
+#### workflow
+1. Run `k3d_install.sh`  
+       → Installs Docker, k3d, kubectl, jq
+2. Run `create_nodes.sh`  
+       → Creates k3d cluster, namespaces, and deploys your app
+3. (Optional) Set up Argo CD in `argocd` namespace  
+       → Connects Argo CD to your GitHub repo
+4. Argo CD syncs manifests from GitHub  
+       → Deploys to `dev` namespace
+5. K3d pulls Docker images from Docker Hub  
+       → Runs your app as pods
+6. Access your app on the host  
+       → via exposed ports
 
 ---
 

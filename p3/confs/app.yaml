@@ -1,43 +1,38 @@
-# Defines which Kubernetes API group and version this resource belongs to (Argo CD API)
-# Specifies the type of Kubernetes resource (Argo CD Application)
-apiVersion: argoproj.io/v1alpha1 
-kind: Application                 
-
-# The name of this Argo CD Application resource
-# The namespace where Argo CD is installed and where this Application object exists
+# Application manifest for dev namespace
+# Example: ArgoCD will deploy this app
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: yilin                   
-  namespace: argocd              
-
+  name: my-app
+  namespace: dev
 spec:
-  # The Argo CD project this application belongs to (default project unless custom created)
-  project: default                
-
-
-  # Git repository containing Kubernetes manifests
-  # Which Git branch, tag, or commit to track (HEAD = latest commit of default branch)
-  # Directory inside the repository where Kubernetes YAML files are located
-  source:
-    repoURL: https://github.com/yilin/yilin-ception.git  
-    targetRevision: HEAD          
-    path: manifests               
-
-
-  # Kubernetes API server address (default internal cluster endpoint)
-  # Target namespace where resources will be deployed
-  destination:
-    server: https://kubernetes.default.svc  
-    namespace: dev                          
-
-  syncPolicy:
-    automated:                
-      selfHeal: true         
-      prune: true           
-
-
-## NOTES ##
-
-  # syncPolicy:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-app-container
+        image: wil42/playground:v1
+        ports:
+        - containerPort: 8888
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app-service
+  namespace: dev
+spec:
+  selector:
+    app: my-app
+  ports:
+    - protocol: TCP
+      port: 8888
+      targetPort: 8888
   #   automated:                # Enables automatic synchronization (GitOps auto-deploy)
   #     selfHeal: true          # If someone manually changes cluster resources, Argo CD will revert them to match Git
   #     prune: true             # Removes resources from the cluster if they are deleted from the Git repository

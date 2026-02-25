@@ -1,0 +1,10 @@
+# Namespace manifests
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: argocd
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
