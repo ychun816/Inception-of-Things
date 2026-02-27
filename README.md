@@ -40,7 +40,7 @@ Group project finalized [HERE](https://github.com/ychun816/Inception-of-Things2)
 
 ---
 
-### p1 Basic Setup (2VMS) | quick start 
+### p1 Basic Setup (2VMS)
 
 ```bash
 vagrant --version
@@ -74,7 +74,7 @@ VBoxManage setproperty machinefolder /goinfre/yilin/virtualbox_vms
 
 ---
 
-### p2 (1VM / 1 ingress) | Quick Start
+### p2 (1VM / 1 ingress) 
 
 > Deployment = manages pods (your app instances)
 > Service = stable access point to those pods
@@ -105,6 +105,13 @@ VBoxManage setproperty machinefolder /goinfre/yilin/virtualbox_vms
        → via exposed ports
 
 ---
+
+# Otehrr principle concepts
+
+## Kubernetes principle structure /feature
+
+<img width="1484" height="884" alt="f834fe03-324b-420f-8e16-965bb30c837d sketchpad" src="https://github.com/user-attachments/assets/2eef82c4-a207-4f9b-971b-0d7f60ec3d8a" />
+
 
 ## Kubernetes Best Practice: Modularity
 
@@ -142,6 +149,8 @@ VBoxManage setproperty machinefolder /goinfre/yilin/virtualbox_vms
 |            | **Vagrant**          | 虛擬機管理          | 本地開發環境        | 建立/管理可重現的虛擬機；支援 VirtualBox、VMware 等 | 開發環境建立；本地測試多種 OS / VM    | 快速建立開發機的「沙盒」               |
 | **配置與自動化** | **Ansible**          | 配置管理與自動化       | 多主機 / 多層架構    | 無代理；推送式管理；YAML Playbook；可重複執行       | 安裝/配置軟體；部署應用程式；伺服器管理     | 幫你設定與配置機器的「機器人」            |
 
+---
+
 ### k3s vs k3d 
 
 | Concept | Analogy                                                                  |
@@ -154,6 +163,7 @@ VBoxManage setproperty machinefolder /goinfre/yilin/virtualbox_vms
 > K3d = a helper tool that runs K3s inside Docker for convenience, speed, and local testing.
 > In production, you use K3s directly; K3d is not needed.
 > In dev/test, K3d accelerates cluster setup inside Docker.
+
 
 ```
 ┌──────────────┐
@@ -181,3 +191,6 @@ Local Development / Testing / CI:
 │ (mini boss)  │
 └──────────────┘
 ```
+
+---
+
