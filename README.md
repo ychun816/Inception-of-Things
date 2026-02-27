@@ -4,6 +4,29 @@ This is the personal repo,
 
 Group project finalized [HERE](https://github.com/ychun816/Inception-of-Things2) (collab with @hsharame )
 
+---
+
+# Index
+
+- [Project Structure](#ProjectStructure)
+- [Project repos](#Projectrepos)
+    - [p1]
+    - [p2]
+    - [p3]
+- [Other principle concepts]
+    - [Kubernetes principle structure /feature]
+- [summary]
+    - [docker / k8s / k3s / k3d // terrafrom / vagrant // ansible]
+    - [k3s vs k3d]
+- [documentations]
+    - [prestart]
+    - [k8s]
+    - [Vagrant]
+    - [k3s]
+    - [k3d]
+    - [Argo CD] 
+
+---
 
 ## Project Structure
 
@@ -39,6 +62,8 @@ Group project finalized [HERE](https://github.com/ychun816/Inception-of-Things2)
 
 
 ---
+
+## Project repos
 
 ### p1 Basic Setup (2VMS)
 
@@ -127,7 +152,8 @@ VBoxManage setproperty machinefolder /goinfre/yilin/virtualbox_vms
 
 ---
 
-## summary: docker / k8s / k3s / k3d // terrafrom / vagrant // ansible
+# Summary
+## docker / k8s / k3s / k3d // terrafrom / vagrant // ansible
 
 | Group                                | Tool                 | Purpose                               | Scope                          | Key Features                                                             | Typical Use Cases                                                 | Analogy                                             |
 | ------------------------------------ | -------------------- | ------------------------------------- | ------------------------------ | ------------------------------------------------------------------------ | ----------------------------------------------------------------- | --------------------------------------------------- |
@@ -151,7 +177,7 @@ VBoxManage setproperty machinefolder /goinfre/yilin/virtualbox_vms
 
 ---
 
-### k3s vs k3d 
+## k3s vs k3d 
 
 | Concept | Analogy                                                                  |
 | ------- | ------------------------------------------------------------------------ |
