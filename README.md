@@ -6,25 +6,26 @@ Group project finalized [HERE](https://github.com/ychun816/Inception-of-Things2)
 
 ---
 
+
 # Index
 
-- [Project Structure](#ProjectStructure)
-- [Project repos](#Projectrepos)
-    - [p1]
-    - [p2]
-    - [p3]
-- [Other principle concepts]
-    - [Kubernetes principle structure /feature]
-- [summary]
-    - [docker / k8s / k3s / k3d // terrafrom / vagrant // ansible]
-    - [k3s vs k3d]
-- [documentations]
-    - [prestart]
-    - [k8s]
-    - [Vagrant]
-    - [k3s]
-    - [k3d]
-    - [Argo CD] 
+- [Project Structure](#project-structure)
+- [Project repos](#project-repos)
+       - [p1 Basic Setup (2VMS)](#p1-basic-setup-2vms)
+       - [p2 (1VM / 1 ingress)](#p2-1vm--1-ingress)
+       - [p3 continuous integration | K3d and Argo CD](#p3-continuous-integration--k3d-and-argo-cd)
+- [Other principle concepts](#otehrr-principle-concepts)
+       - [Kubernetes principle structure /feature](#kubernetes-principle-structure-feature)
+- [Summary](#summary)
+       - [docker / k8s / k3s / k3d // terrafrom / vagrant // ansible](#docker--k8s--k3s--k3d--terrafrom--vagrant--ansible)
+       - [k3s vs k3d](#k3s-vs-k3d)
+- [Documentations](#documentations)
+       - [prestart](documentations/PRESTART.md)
+       - [k8s](documentations/K8.md)
+       - [Vagrant](documentations/VAGRANT.md)
+       - [k3s](documentations/K3S.md)
+       - [k3d](documentations/K3D.md)
+       - [Argo CD](documentations/ARGOCD.md)
 
 ---
 
