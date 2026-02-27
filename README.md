@@ -1,5 +1,9 @@
 # Inception of Things
 
+This is the personal repo,
+Group project finalized [HERE](https://github.com/ychun816/Inception-of-Things2) (collab with (@hsharame)[https://github.com/hsharame] )
+
+
 ## Project Structure
 
 ```bash
